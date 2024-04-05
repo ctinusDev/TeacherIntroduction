@@ -10,49 +10,22 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000; /* 设置背景颜色为黑色 */
         }
 
-        .pause-button {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .pause-button i {
-            color: white;
-            font-size: 24px;
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 缩放视频以适应容器 */
         }
     </style>
 </head>
 <body>
-    <video id="videoPlayer" autoplay>
+    <video autoplay>
         <source src="M21.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div class="pause-button" id="pauseButton">
-        <i class="fa fa-pause"></i>
-    </div>
-
-    <script>
-        var video = document.getElementById('videoPlayer');
-        var pauseButton = document.getElementById('pauseButton');
-
-        pauseButton.addEventListener('click', function() {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        });
-    </script>
 </body>
 </html>
