@@ -18,8 +18,8 @@ jobs:
         with:
           python-version: '3.x'
       
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      # - name: Install dependencies
+      #   run: pip install -r requirements.txt
       
       - name: Generate HTML for MP4 files
         run: python generate_html.py
