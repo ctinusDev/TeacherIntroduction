@@ -54,15 +54,5 @@ def main():
             os.rename(file, os.path.join(repo.working_tree_dir, file))
             print(f"HTML file moved: {file}")
         
-        print("Adding and committing generated HTML files to the repository...")
-        repo.git.add(".")
-        repo.index.commit("Add generated HTML files")
-        print("HTML files added and committed.")
-        
-        # Push changes to remote repository
-        origin = repo.remote(name="origin")
-        origin.push()
-        print("Changes pushed to remote repository.")
-        
 if __name__ == "__main__":
     main()
