@@ -46,11 +46,14 @@ def main():
                 html_filename = f"{file[:-4]}.html"
                 if not os.path.exists(html_filename):
                     generated_files.append(html_filename)
-                    generate_html(file)
+                    print(f"Generating HTML file for {file}...")
+                    generated_html = generate_html(file)
+                    print(f"HTML file generated: {generated_html}")
     if generated_files:
-        # 移动生成的HTML文件到代码仓库中
+        print("Moving generated HTML files to the repository...")
         for file in generated_files:
             shutil.move(file, os.path.join(os.path.dirname(__file__), file))
+            print(f"HTML file moved: {file}")
 
 if __name__ == "__main__":
     main()
