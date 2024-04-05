@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Video</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 缩放视频以适应容器 */
+        }
+    </style>
 </head>
 <body>
-    <h1>My Video</h1>
-    <video controls>
-        <source src="M21.mp4" type="video/mp4">
+    <video controls autoplay>
+        <source src="video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </body>
 </html>
+
