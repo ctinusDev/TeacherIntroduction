@@ -1,5 +1,6 @@
 import os
 import shutil
+import subprocess
 
 def generate_html(filename):
     html_content = f"""<!DOCTYPE html>
@@ -46,14 +47,16 @@ def main():
                 html_filename = f"{file[:-4]}.html"
                 if not os.path.exists(html_filename):
                     generated_files.append(html_filename)
-                    print(f"Generating HTML file for {file}...")
-                    generated_html = generate_html(file)
-                    print(f"HTML file generated: {generated_html}")
+                    generate_html(file)
     if generated_files:
         print("Moving generated HTML files to the repository...")
         for file in generated_files:
             shutil.move(file, os.path.join(os.path.dirname(__file__), file))
             print(f"HTML file moved: {file}")
+        print("Adding and committing generated HTML files to the repository...")
+        subprocess.run(["git", "add", "*.html"])
+        subprocess.run(["git", "commit", "-m", "Add generated HTML files"])
+        print("HTML files added and committed.")
 
 if __name__ == "__main__":
     main()
