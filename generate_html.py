@@ -48,9 +48,9 @@ def main():
                     generated_files.append(html_filename)
                     generate_html(file)
     if generated_files:
-        # 提交生成的HTML文件到代码仓库
+        # 移动生成的HTML文件到代码仓库中
         for file in generated_files:
-            shutil.move(file, file.split('/')[-1])
+            shutil.move(file, os.path.join(os.path.dirname(__file__), file))
 
 if __name__ == "__main__":
     main()
