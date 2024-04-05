@@ -1,10 +1,8 @@
 name: Generate HTML for MP4 files
 
-on:
-  push:
-    branches:
-      - main
-
+on: push
+permissions:
+  contents: write
 jobs:
   generate_html:
     runs-on: ubuntu-latest
@@ -23,3 +21,11 @@ jobs:
       
       - name: Generate HTML for MP4 files
         run: python generate_html.py
+        
+      - name: Commit report
+        run: |
+          git config --global user.name 'ctinusDev'
+          git config --global user.email '1158433594@qq.com'
+          git add -A
+          git commit -am "update html"
+          git push
